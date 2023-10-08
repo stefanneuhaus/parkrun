@@ -1,0 +1,8 @@
+.idea/
+*.iml
+
+_data/
+_dev-experiments
+
+node_modules/
+.env
