@@ -41,5 +41,5 @@ Retrieved Sun Oct 08 2023 22:24:38 GMT+0200 (Central European Summer Time)
 ## References
 
 * Swagger [API documentation](https://developer.parkrun.com/) of the parkrun API  
-  *Note*: At the moment the API is intended for [internal use](https://www.parkrun.com/api/), only.
+  *Note*: At the moment the API is intended for [internal use](https://www.parkrun.com/api/), only. And the API documentation seems to be outdated.
 * [parkrun.js](https://parkrun.js.org/): (inofficial) library for accessing the parkrun API. This project does not depend on it. But I used it to reverse-engineer the API.
