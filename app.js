@@ -7,14 +7,14 @@ async function printEventsInGermany() {
 
     const GERMANY = 32;
     let events = await searchEvents(GERMANY, accessToken);
-    let statisticsPromises = events.data.Events
-        .map(event => getEventStatistics(event));
+    let detailsPromises = events.data.Events
+        .map(event => getEventDetails(event));
 
-    let allStatistics = await Promise.all(statisticsPromises);
-    allStatistics
+    let allDetails = await Promise.all(detailsPromises);
+    allDetails
         .sort((s1, s2) => s2.totalEventsStaged - s1.totalEventsStaged)
         .sort((s1, s2) => s1.firstEvent.getTime() - s2.firstEvent.getTime())
-        .forEach((eventStatistics, i) => logEventStatistics(i + 1, eventStatistics));
+        .forEach((eventDetails, i) => logEventDetails(i + 1, eventDetails));
 
     console.log(`\nRetrieved ${new Date()}`);
 }
@@ -25,10 +25,10 @@ async function searchEvents(countryId, accessToken) {
         .then(response => response.json());
 }
 
-function getEventStatistics(event) {
+function getEventDetails(event) {
     let eventId = event.EventName;
     return fetchEventHistory(eventId)
-        .then(eventHistory => extractEventStatistics(event, eventHistory));
+        .then(eventHistory => extractEventDetails(event, eventHistory));
 }
 
 async function fetchEventHistory(eventId) {
@@ -37,7 +37,7 @@ async function fetchEventHistory(eventId) {
         .then(response => response.text());
 }
 
-function extractEventStatistics(event, eventHistory) {
+function extractEventDetails(event, eventHistory) {
     let dom = new JSDOM(eventHistory);
     let eventHappenings = dom.window.document.querySelectorAll("tr.Results-table-row");
     let numberOfHappenings = eventHappenings.length;
@@ -63,9 +63,9 @@ function parseDate(formattedDate) {
     return new Date(year, month, day);
 }
 
-function logEventStatistics(i, stats) {
+function logEventDetails(i, stats) {
     let formatDate = (date) => date.toLocaleDateString("de-DE", {day: "2-digit", month: "2-digit", year: "numeric"});
-    console.log(`${i}. ${stats.longName} (${stats.location}): ${stats.totalEventsStaged} runs since ${formatDate(stats.firstEvent)}`);
+    console.log(`${i}. ${stats.longName} (${stats.location}): ${stats.totalEventsStaged} runs since ${formatDate(stats.firstEvent)} - https://www.parkrun.com.de/${stats.id}/`);
 }
 
 async function login(username, password) {
