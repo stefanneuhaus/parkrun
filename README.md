@@ -33,8 +33,6 @@ Retrieved Sun Oct 08 2023 22:24:38 GMT+0200 (Central European Summer Time)
 
 ## Usage
 
-### Installation
-
 0. Prerequisite: You must have [Node.js](https://nodejs.org/) installed.
 1. Run `npm install`
 2. Enter your parkrun credentials in `.env`
