@@ -13,7 +13,7 @@ async function printEventsInGermany() {
     let allDetails = await Promise.all(detailsPromises);
     allDetails
         .sort((s1, s2) => s2.totalEventsStaged - s1.totalEventsStaged)
-        .sort((s1, s2) => s1.firstEvent.getTime() - s2.firstEvent.getTime())
+        .sort((s1, s2) => s1.firstEvent - s2.firstEvent)
         .forEach((eventDetails, i) => logEventDetails(i + 1, eventDetails));
 
     console.log(`\nRetrieved ${new Date()}`);
@@ -34,15 +34,21 @@ function getEventDetails(event) {
 async function fetchEventHistory(eventId) {
     let url = `https://www.parkrun.com.de/${eventId}/results/eventhistory/`;
     return fetch(url)
-        .then(response => response.text());
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Fetching event history failed: ${response.statusText}`);
+            }
+            return response.text();
+        });
 }
 
 function extractEventDetails(event, eventHistory) {
     let dom = new JSDOM(eventHistory);
     let eventHappenings = dom.window.document.querySelectorAll("tr.Results-table-row");
     let numberOfHappenings = eventHappenings.length;
-    let firstHappening = eventHappenings[numberOfHappenings - 1];
-    let dateOfFirstHappening = parseDate(firstHappening.getAttribute("data-date"));
+    let dateOfFirstHappening = numberOfHappenings > 0 ?
+        parseDate(eventHappenings[numberOfHappenings - 1].getAttribute("data-date")) :
+        null;
 
     return {
         id: event.EventName,
@@ -64,8 +70,14 @@ function parseDate(formattedDate) {
 }
 
 function logEventDetails(i, stats) {
-    let formatDate = (date) => date.toLocaleDateString("de-DE", {day: "2-digit", month: "2-digit", year: "numeric"});
-    console.log(`${i}. ${stats.longName} (${stats.location}): ${stats.totalEventsStaged} runs since ${formatDate(stats.firstEvent)} - https://www.parkrun.com.de/${stats.id}/`);
+    let formatDate = (date) => date ?
+        date.toLocaleDateString("de-DE", {day: "2-digit", month: "2-digit", year: "numeric"}) :
+        "n.a.";
+    let numberOfRunsText = stats.totalEventsStaged > 0 ?
+        "${stats.totalEventsStaged} runs since ${formatDate(stats.firstEvent)}" :
+        "0 runs";
+
+    console.log(`${i}. ${stats.longName} (${stats.location}): ${numberOfRunsText} - https://www.parkrun.com.de/${stats.id}/`);
 }
 
 async function login(username, password) {
