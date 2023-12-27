@@ -6,29 +6,30 @@ This includes the lovely [Aachener Weiher parkrun](https://www.parkrun.com.de/aa
 Example output:
 
 ```
-1. Neckarau parkrun (Neckarau, Mannheim): 237 runs since 02.12.2017 - https://www.parkrun.com.de/neckarau/
-2. Georgengarten parkrun (Georgengarten, Hannover): 237 runs since 02.12.2017 - https://www.parkrun.com.de/georgengarten/
-3. Küchenholz parkrun (Küchenholz, Leipzig): 203 runs since 02.12.2017 - https://www.parkrun.com.de/kuechenholz/
-4. Hasenheide parkrun (Hasenheide Park, Berlin): 227 runs since 06.01.2018 - https://www.parkrun.com.de/hasenheide/
-5. Nidda parkrun (Nidda, Frankfurt Main): 222 runs since 06.01.2018 - https://www.parkrun.com.de/nidda/
-6. Rubbenbruchsee parkrun (Rubbenbruchsee, Osnabrück): 230 runs since 13.01.2018 - https://www.parkrun.com.de/rubbenbruchsee/
-7. Wöhrder See parkrun (Wöhrder See, Nürnberg): 204 runs since 14.04.2018 - https://www.parkrun.com.de/woehrdersee/
-8. Kräherwald parkrun (Kräherwald, Stuttgart): 216 runs since 05.05.2018 - https://www.parkrun.com.de/kraeherwald/
-9. Seewoog parkrun (Seewoog, Ramstein-Miesenbach): 194 runs since 15.09.2018 - https://www.parkrun.com.de/seewoog/
-10. Schwanenteich parkrun (Stadtpark, Giessen): 191 runs since 29.09.2018 - https://www.parkrun.com.de/schwanenteich/
-11. Leinpfad parkrun (Stadtpark, Merzig): 181 runs since 05.01.2019 - https://www.parkrun.com.de/leinpfad/
-12. Alstervorland parkrun (Alstervorland, Hamburg): 175 runs since 12.01.2019 - https://www.parkrun.com.de/alstervorland/
-13. Westpark parkrun (Westpark, München): 177 runs since 19.01.2019 - https://www.parkrun.com.de/westpark/
-14. Rheinaue parkrun (Rheinaue, Bonn): 175 runs since 02.02.2019 - https://www.parkrun.com.de/rheinaue/
-15. Aachener Weiher parkrun (Aachener Weiher, Köln): 172 runs since 23.03.2019 - https://www.parkrun.com.de/aachenerweiher/
+1. Georgengarten parkrun (Georgengarten, Hannover): 248 runs since 02.12.2017 - https://www.parkrun.com.de/georgengarten/
+2. Neckarau parkrun (Neckarau, Mannheim): 247 runs since 02.12.2017 - https://www.parkrun.com.de/neckarau/
+3. Küchenholz parkrun (Küchenholz, Leipzig): 214 runs since 02.12.2017 - https://www.parkrun.com.de/kuechenholz/
+4. Hasenheide parkrun (Hasenheide Park, Berlin): 234 runs since 06.01.2018 - https://www.parkrun.com.de/hasenheide/
+5. Nidda parkrun (Nidda, Frankfurt Main): 233 runs since 06.01.2018 - https://www.parkrun.com.de/nidda/
+6. Rubbenbruchsee parkrun (Rubbenbruchsee, Osnabrück): 241 runs since 13.01.2018 - https://www.parkrun.com.de/rubbenbruchsee/
+7. Wöhrder See parkrun (Wöhrder See, Nürnberg): 215 runs since 14.04.2018 - https://www.parkrun.com.de/woehrdersee/
+8. Kräherwald parkrun (Kräherwald, Stuttgart): 227 runs since 05.05.2018 - https://www.parkrun.com.de/kraeherwald/
+9. Seewoog parkrun (Seewoog, Ramstein-Miesenbach): 205 runs since 15.09.2018 - https://www.parkrun.com.de/seewoog/
+10. Schwanenteich parkrun (Stadtpark, Giessen): 202 runs since 29.09.2018 - https://www.parkrun.com.de/schwanenteich/
+11. Leinpfad parkrun (Stadtpark, Merzig): 192 runs since 05.01.2019 - https://www.parkrun.com.de/leinpfad/
+12. Alstervorland parkrun (Alstervorland, Hamburg): 186 runs since 12.01.2019 - https://www.parkrun.com.de/alstervorland/
+13. Westpark parkrun (Westpark, München): 187 runs since 19.01.2019 - https://www.parkrun.com.de/westpark/
+14. Rheinaue parkrun (Rheinaue, Bonn): 185 runs since 02.02.2019 - https://www.parkrun.com.de/rheinaue/
+15. Aachener Weiher parkrun (Aachener Weiher, Köln): 183 runs since 23.03.2019 - https://www.parkrun.com.de/aachenerweiher/
 
 [...]
 
-54. Wertwiesen parkrun (Wertwiesen): 13 runs since 15.07.2023 - https://www.parkrun.com.de/wertwiesen/
-55. Ebenberg parkrun (Ebenberg): 6 runs since 09.09.2023 - https://www.parkrun.com.de/ebenberg/
-56. Bahnstadt Promenade parkrun (): 2 runs since 30.09.2023 - https://www.parkrun.com.de/bahnstadtpromenade/
+54. Wertwiesen parkrun (Wertwiesen): 24 runs since 15.07.2023 - https://www.parkrun.com.de/wertwiesen/
+55. Ebenberg parkrun (Ebenberg): 17 runs since 09.09.2023 - https://www.parkrun.com.de/ebenberg/
+56. Bahnstadt Promenade parkrun (): 13 runs since 30.09.2023 - https://www.parkrun.com.de/bahnstadtpromenade/
+57. Ehrenbreitstein parkrun (Ehrenbreitstein): 0 runs - https://www.parkrun.com.de/ehrenbreitstein/
 
-Retrieved Sun Oct 08 2023 22:24:38 GMT+0200 (Central European Summer Time)
+Retrieved Wed Dec 27 2023 13:21:09 GMT+0100 (GMT+01:00)
 ```
 
 ## Usage

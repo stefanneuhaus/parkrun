@@ -1,12 +1,15 @@
 require("dotenv").config();
 const {JSDOM} = require("jsdom");
 
+const USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
+
 
 async function printEventsInGermany() {
     let accessToken = await login(process.env.PARKRUN_ID, process.env.PARKRUN_PASSWORD);
 
     const GERMANY = 32;
     let events = await searchEvents(GERMANY, accessToken);
+
     let detailsPromises = events.data.Events
         .map(event => getEventDetails(event));
 
@@ -33,7 +36,8 @@ function getEventDetails(event) {
 
 async function fetchEventHistory(eventId) {
     let url = `https://www.parkrun.com.de/${eventId}/results/eventhistory/`;
-    return fetch(url)
+    let options = {headers: {"User-Agent": USER_AGENT}};
+    return fetch(url, options)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Fetching event history failed: ${response.statusText}`);
@@ -48,7 +52,7 @@ function extractEventDetails(event, eventHistory) {
     let numberOfHappenings = eventHappenings.length;
     let dateOfFirstHappening = numberOfHappenings > 0 ?
         parseDate(eventHappenings[numberOfHappenings - 1].getAttribute("data-date")) :
-        null;
+        new Date();
 
     return {
         id: event.EventName,
@@ -74,7 +78,7 @@ function logEventDetails(i, stats) {
         date.toLocaleDateString("de-DE", {day: "2-digit", month: "2-digit", year: "numeric"}) :
         "n.a.";
     let numberOfRunsText = stats.totalEventsStaged > 0 ?
-        "${stats.totalEventsStaged} runs since ${formatDate(stats.firstEvent)}" :
+        `${stats.totalEventsStaged} runs since ${formatDate(stats.firstEvent)}` :
         "0 runs";
 
     console.log(`${i}. ${stats.longName} (${stats.location}): ${numberOfRunsText} - https://www.parkrun.com.de/${stats.id}/`);
