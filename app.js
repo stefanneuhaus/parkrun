@@ -66,10 +66,10 @@ function extractEventDetails(event, eventHistory) {
 
 function parseDate(formattedDate) {
     // example formattedDate: "23/03/2019"
-    let parts = formattedDate.split("/");
-    let year = parts[2];
+    let parts = formattedDate.split("-");
+    let year = parts[0];
     let month = parts[1] - 1;
-    let day = parts[0];
+    let day = parts[2];
     return new Date(year, month, day);
 }
 
